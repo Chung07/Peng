@@ -23,6 +23,3 @@ for company in companyL:
 with open("company.txt",mode="w") as file:
   for company in companyL:
     file.write(company["公司名稱"]+"\n")
-
-
-#test git
