@@ -11,15 +11,15 @@ import json
 src="https://data.taipei/opendata/datalist/apiAccess?scope=resourceAquire&rid=296acfa2-5d93-4706-ad58-e83cc951863c"
 with request.urlopen(src) as res:
   data = json.load(res) #用json模組讀取資料
-# print(data)
+#print(data)                                      #可以看到統編欄位是\ufeff統編，未來若要輸出不能只打"統編"
 
 #取得公司名稱
 companyL=data["result"]["results"]
-print(companyL)
+# print(companyL)
 for company in companyL:
-  print(company["公司名稱"])
+   print(company["\ufeff統編"]+company["公司名稱"]+" [ "+company["公司地址"]+" ] ")
 
-#把名稱放進檔案中
-with open("company.txt",mode="w") as file:
-  for company in companyL:
-    file.write(company["公司名稱"]+"\n")
+# #把名稱放進檔案中
+with open("company.txt",mode="w") as file:   
+   for company in companyL:
+     file.write(company["\ufeff統編"]+company["公司名稱"]+" [ "+company["公司地址"]+" ] "+"\n")
