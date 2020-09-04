@@ -31,13 +31,13 @@ def getData(url):
     return nextLink["href"] #回傳上一頁的url
 
 #抓取一個頁面的標題
-pageurl=url="https://www.ptt.cc/bbs/Gossiping/index.html"
+pageurl="https://www.ptt.cc/bbs/Gossiping/index.html"
 #回傳的上一頁url覆蓋到pageurl印出，取得上一頁的url
 # pageurl=getData(pageurl) 
 
 
 count=0
-while count<1:
+while count<3:
     #上一頁的url
     pageurl="https://www.ptt.cc"+getData(pageurl)
     count+=1
